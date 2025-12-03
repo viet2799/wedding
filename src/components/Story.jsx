@@ -14,7 +14,7 @@ const Story = () => {
       title: 'Lần Đầu Gặp Gỡ',
       date: 'Mùa Xuân 2020',
       description: 'Chúng tôi gặp nhau trong một buổi chiều nắng đẹp tại quán cà phê yêu thích. Ánh mắt đầu tiên đã khiến trái tim chúng tôi rung động.',
-      image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800',
+      image: 'public/wedding1.jpg',
       color: 'from-primary-400 to-primary-600'
     },
     {
@@ -22,7 +22,7 @@ const Story = () => {
       title: 'Kỷ Niệm Đáng Nhớ',
       date: 'Mùa Hè 2021',
       description: 'Chuyến đi biển đầu tiên cùng nhau, nơi chúng tôi trao nhau lời hứa sẽ luôn bên nhau dù bất cứ điều gì xảy ra.',
-      image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800',
+      image: 'public/wedding2.jpg',
       color: 'from-gold-400 to-gold-600'
     },
     {
@@ -76,7 +76,7 @@ const Story = () => {
                     alt={item.title}
                     className="w-full h-80 object-cover"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-t ${item.color} opacity-30`}></div>
+                  <div className={`absolute inset-0 opacity-30`}></div>
                 </div>
               </motion.div>
 

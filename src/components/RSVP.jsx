@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaUser, FaEnvelope, FaPhone, FaUsers, FaCheckCircle } from 'react-icons/fa';
 
 const RSVP = () => {
   const [ref, inView] = useInView({ 
@@ -9,42 +7,28 @@ const RSVP = () => {
     threshold: 0.1 
   });
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    guests: '1',
-    message: ''
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Ở đây bạn có thể thêm logic gửi form đến backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        guests: '1',
-        message: ''
-      });
-    }, 3000);
-  };
+  const qrCodes = [
+    {
+      title: 'Mã QR Nhà Trai',
+      subtitle: 'Scan để chung vui cùng chú rể',
+      image: '/qr-chu-re.svg'
+    },
+    {
+      title: 'Mã QR Nhà Gái',
+      subtitle: 'Scan để chung vui cùng cô dâu',
+      image: '/qr-co-dau.svg'
+    }
+  ];
 
   return (
-    <section id="rsvp" className="section-container bg-white" ref={ref}>
+    <section
+      id="rsvp"
+      className="section-container relative overflow-hidden bg-white rounded-[32px] shadow-2xl border border-primary-50"
+      ref={ref}
+    >
+      <div className="absolute -left-16 top-10 w-64 h-64 bg-primary-200/40 blur-3xl rounded-full" aria-hidden="true"></div>
+      <div className="absolute -right-10 bottom-10 w-72 h-72 bg-gold-200/40 blur-3xl rounded-full" aria-hidden="true"></div>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -52,10 +36,10 @@ const RSVP = () => {
         className="text-center mb-16"
       >
         <h2 className="text-5xl md:text-6xl font-bold gradient-text mb-4">
-          Xác Nhận Tham Dự
+          Chung Vui Với Bọn Tớ
         </h2>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Sự hiện diện của bạn là niềm vui và vinh dự lớn nhất của chúng tôi
+          Quét mã QR của mỗi nhà để gửi lời chúc và chung vui cùng tụi mình nhé!
         </p>
       </motion.div>
 
@@ -63,121 +47,55 @@ const RSVP = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="max-w-2xl mx-auto"
+        className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 max-w-6xl mx-auto items-start"
       >
-        {submitted ? (
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            className="card text-center py-12"
-          >
-            <FaCheckCircle className="text-6xl text-green-500 mx-auto mb-4" />
-            <h3 className="text-3xl font-bold text-gray-800 mb-2">
-              Cảm ơn bạn!
-            </h3>
-            <p className="text-lg text-gray-600">
-              Chúng tôi đã nhận được xác nhận của bạn. Rất mong được gặp bạn!
-            </p>
-          </motion.div>
-        ) : (
-          <form onSubmit={handleSubmit} className="card">
-            <div className="space-y-6">
-              {/* Name */}
-              <div>
-                <label className="flex items-center text-gray-700 font-semibold mb-2">
-                  <FaUser className="mr-2 text-primary-500" />
-                  Họ và tên *
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary-500 focus:outline-none transition-colors"
-                  placeholder="Nhập họ và tên của bạn"
+        <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {qrCodes.map((qr, index) => (
+            <motion.div
+              key={qr.title}
+              className="card relative overflow-hidden bg-gradient-to-br from-white via-primary-50/40 to-gold-50/60"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
+            >
+              <div className="absolute inset-0 scale-110 blur-2xl opacity-60">
+                <img
+                  src={qr.image}
+                  alt={`${qr.title} - nền mờ`}
+                  className="w-full h-full object-contain"
+                  aria-hidden="true"
                 />
               </div>
 
-              {/* Email */}
-              <div>
-                <label className="flex items-center text-gray-700 font-semibold mb-2">
-                  <FaEnvelope className="mr-2 text-primary-500" />
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary-500 focus:outline-none transition-colors"
-                  placeholder="email@example.com"
-                />
-              </div>
+              <div className="absolute -top-4 -right-4 w-28 h-28 bg-gradient-to-br from-primary-400/40 to-gold-400/40 rounded-full blur-3xl" aria-hidden="true"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-primary-200/60 to-white/60 rounded-full blur-3xl" aria-hidden="true"></div>
 
-              {/* Phone */}
-              <div>
-                <label className="flex items-center text-gray-700 font-semibold mb-2">
-                  <FaPhone className="mr-2 text-primary-500" />
-                  Số điện thoại
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary-500 focus:outline-none transition-colors"
-                  placeholder="0123456789"
-                />
+              <div className="relative z-10 text-center space-y-5">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur shadow border border-primary-100 text-sm font-semibold text-primary-700">
+                  <span className="h-2 w-2 rounded-full bg-primary-500 animate-pulse"></span>
+                  Cùng chung vui
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">{qr.title}</h3>
+                <p className="text-gray-600 text-base">{qr.subtitle}</p>
+                <div className="relative inline-flex items-center justify-center">
+                  <div className="absolute -inset-6 rounded-[28px] bg-gradient-to-r from-primary-300/40 via-white/40 to-gold-300/40 blur-2xl" aria-hidden="true"></div>
+                  <div className="relative p-5 bg-white/85 backdrop-blur rounded-[24px] border border-primary-100 shadow-2xl">
+                    <div className="absolute inset-0 rounded-[24px] bg-gradient-to-br from-primary-100/40 to-gold-100/30 opacity-70 pointer-events-none"></div>
+                    <div className="relative">
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-400/20 to-gold-400/20 blur-xl opacity-80" aria-hidden="true"></div>
+                      <img
+                        src={qr.image}
+                        alt={`${qr.title} - mã QR`}
+                        className="relative w-56 md:w-64 mx-auto drop-shadow-lg"
+                      />
+                      <div className="absolute inset-0 rounded-2xl ring-2 ring-primary-100 animate-pulse pointer-events-none"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              {/* Number of guests */}
-              <div>
-                <label className="flex items-center text-gray-700 font-semibold mb-2">
-                  <FaUsers className="mr-2 text-primary-500" />
-                  Số lượng khách *
-                </label>
-                <select
-                  name="guests"
-                  value={formData.guests}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary-500 focus:outline-none transition-colors"
-                >
-                  {[1, 2, 3, 4, 5].map(num => (
-                    <option key={num} value={num}>{num} người</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className="flex items-center text-gray-700 font-semibold mb-2">
-                  Lời chúc
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="4"
-                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary-500 focus:outline-none transition-colors resize-none"
-                  placeholder="Gửi lời chúc đến cặp đôi..."
-                ></textarea>
-              </div>
-
-              {/* Submit Button */}
-              <motion.button
-                type="submit"
-                className="w-full btn-primary"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Gửi Xác Nhận
-              </motion.button>
-            </div>
-          </form>
-        )}
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

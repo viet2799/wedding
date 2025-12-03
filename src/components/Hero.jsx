@@ -109,7 +109,7 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 1, type: "spring" }}
           >
-            Việt & Hương
+            Việt &amp; Hương
           </motion.h1>
 
           <motion.div 
@@ -172,7 +172,7 @@ const Hero = () => {
           transition={{ delay: 1.5, duration: 0.8 }}
           onClick={() => document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' })}
         >
-          Xác Nhận Tham Dự
+          Chung Vui Với Bọn Tớ
         </motion.button>
       </div>
 

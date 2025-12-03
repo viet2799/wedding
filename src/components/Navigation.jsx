@@ -19,7 +19,7 @@ const Navigation = () => {
     { label: 'Trang Chủ', href: '#hero' },
     { label: 'Câu Chuyện', href: '#story' },
     { label: 'Thư Viện', href: '#gallery' },
-    { label: 'Xác Nhận', href: '#rsvp' },
+    { label: 'Chung Vui', href: '#rsvp' },
     { label: 'Địa Điểm', href: '#location' }
   ];
 
