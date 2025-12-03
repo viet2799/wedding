@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState, useMemo } from 'react';
 import { FaHeart, FaChevronDown } from 'react-icons/fa';
-import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
 // Generate random hearts data outside component to avoid render issues
@@ -25,26 +24,34 @@ const Hero = () => {
     seconds: 0
   });
 
-  // Ngày cưới - Bạn có thể thay đổi ngày này
-  const weddingDate = useMemo(() => new Date('2025-12-31T14:00:00'), []);
+  // Ngày cưới - đếm ngược đến 15/12/2025 00:00 (giờ địa phương)
+  const weddingDate = useMemo(() => new Date('2025-12-15T00:00:00'), []);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const updateCountdown = () => {
       const now = new Date();
       const difference = weddingDate.getTime() - now.getTime();
+      const remaining = Math.max(0, difference);
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
-        });
+      setTimeLeft({
+        days: Math.floor(remaining / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((remaining / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((remaining / 1000 / 60) % 60),
+        seconds: Math.floor((remaining / 1000) % 60)
+      });
+
+      if (difference <= 0) {
+        clearInterval(timer);
       }
-    }, 1000);
+    };
+
+    updateCountdown(); // Set initial value immediately
+    const timer = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(timer);
   }, [weddingDate]);
+
+  const formatNumber = (num) => String(num).padStart(2, '0');
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -148,7 +155,7 @@ const Hero = () => {
               transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
             >
               <div className="text-3xl md:text-5xl font-bold gradient-text mb-2">
-                {inView ? <CountUp end={item.value} duration={2} /> : 0}
+                {inView ? formatNumber(item.value) : '00'}
               </div>
               <div className="text-sm md:text-base text-gray-600 font-medium">
                 {item.label}
