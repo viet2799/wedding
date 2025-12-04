@@ -1,38 +1,43 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FaHeart, FaGift, FaRing } from 'react-icons/fa';
-
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FaHeart, FaGift, FaRing } from "react-icons/fa";
+import wedding1 from "/wedding1.jpg";
+import wedding2 from "/wedding2.jpg";
 const Story = () => {
-  const [ref, inView] = useInView({ 
+  const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1 
+    threshold: 0.1,
   });
 
   const timeline = [
     {
       icon: FaHeart,
-      title: 'Lần Đầu Gặp Gỡ',
-      date: 'Mùa Xuân 2020',
-      description: 'Chúng tôi gặp nhau trong một buổi chiều nắng đẹp tại quán cà phê yêu thích. Ánh mắt đầu tiên đã khiến trái tim chúng tôi rung động.',
-      image: '/public/wedding1.jpg',
-      color: 'from-primary-400 to-primary-600'
+      title: "Lần Đầu Gặp Gỡ",
+      date: "Mùa Xuân 2020",
+      description:
+        "Chúng tôi gặp nhau trong một buổi chiều nắng đẹp tại quán cà phê yêu thích. Ánh mắt đầu tiên đã khiến trái tim chúng tôi rung động.",
+      image: wedding1,
+      color: "from-primary-400 to-primary-600",
     },
     {
       icon: FaGift,
-      title: 'Kỷ Niệm Đáng Nhớ',
-      date: 'Mùa Hè 2021',
-      description: 'Chuyến đi biển đầu tiên cùng nhau, nơi chúng tôi trao nhau lời hứa sẽ luôn bên nhau dù bất cứ điều gì xảy ra.',
-      image: '/public/wedding2.jpg',
-      color: 'from-gold-400 to-gold-600'
+      title: "Kỷ Niệm Đáng Nhớ",
+      date: "Mùa Hè 2021",
+      description:
+        "Chuyến đi biển đầu tiên cùng nhau, nơi chúng tôi trao nhau lời hứa sẽ luôn bên nhau dù bất cứ điều gì xảy ra.",
+      image: wedding2,
+      color: "from-gold-400 to-gold-600",
     },
     {
       icon: FaRing,
-      title: 'Ngày Cầu Hôn',
-      date: 'Mùa Đông 2024',
-      description: 'Dưới bầu trời đầy sao, anh đã quỳ gối và hỏi em câu hỏi quan trọng nhất. Em đã nói "Có" với đôi mắt đẫm nước mắt hạnh phúc.',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800',
-      color: 'from-primary-400 to-gold-600'
-    }
+      title: "Ngày Cầu Hôn",
+      date: "Mùa Đông 2024",
+      description:
+        'Dưới bầu trời đầy sao, anh đã quỳ gối và hỏi em câu hỏi quan trọng nhất. Em đã nói "Có" với đôi mắt đẫm nước mắt hạnh phúc.',
+      image:
+        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800",
+      color: "from-primary-400 to-gold-600",
+    },
   ];
 
   return (
@@ -47,7 +52,8 @@ const Story = () => {
           Câu Chuyện Tình Yêu
         </h2>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Mỗi khoảnh khắc bên nhau đều là một trang sách đẹp trong cuốn sách tình yêu của chúng tôi
+          Mỗi khoảnh khắc bên nhau đều là một trang sách đẹp trong cuốn sách
+          tình yêu của chúng tôi
         </p>
       </motion.div>
 
@@ -55,24 +61,26 @@ const Story = () => {
         {timeline.map((item, index) => {
           const Icon = item.icon;
           const isEven = index % 2 === 0;
-          
+
           return (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: isEven ? -50 : 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}
+              className={`flex flex-col ${
+                isEven ? "md:flex-row" : "md:flex-row-reverse"
+              } gap-8 items-center`}
             >
               {/* Image */}
-              <motion.div 
+              <motion.div
                 className="w-full md:w-1/2"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img 
-                    src={item.image} 
+                  <img
+                    src={item.image}
                     alt={item.title}
                     className="w-full h-80 object-cover"
                   />
@@ -90,15 +98,17 @@ const Story = () => {
                 >
                   <Icon size={28} />
                 </motion.div>
-                
+
                 <h3 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">
                   {item.title}
                 </h3>
-                
-                <p className={`text-lg font-semibold mb-4 bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
+
+                <p
+                  className={`text-lg font-semibold mb-4 bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}
+                >
                   {item.date}
                 </p>
-                
+
                 <p className="text-gray-600 text-lg leading-relaxed">
                   {item.description}
                 </p>
