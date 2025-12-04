@@ -49,7 +49,7 @@ Vào: **http://localhost:5173**
 ### 1. Thay tên cặp đôi
 📁 `src/components/Hero.jsx` - Dòng 95
 ```javascript
-Minh & Hương  →  TÊN CỦA BẠN
+Việt & Hương  →  TÊN CỦA BẠN
 ```
 
 ### 2. Thay ngày cưới

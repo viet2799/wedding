@@ -86,7 +86,7 @@ const Footer = () => {
           transition={{ duration: 0.8, delay: 1 }}
           viewport={{ once: true }}
         >
-          <p>© 2025 Minh & Hương Wedding. Made with <FaHeart className="inline text-primary-300 animate-pulse" /> by Love</p>
+          <p>© 2025 Việt & Hương Wedding. Made with <FaHeart className="inline text-primary-300 animate-pulse" /> by Love</p>
         </motion.div>
       </div>
     </footer>

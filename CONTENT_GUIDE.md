@@ -63,7 +63,7 @@ const photos = [
 ```javascript
 // Thay tên cặp đôi (dòng ~95)
 <h1 className="font-script text-6xl...">
-  Minh & Hương  {/* ← Thay tên ở đây */}
+  Việt & Hương  {/* ← Thay tên ở đây */}
 </h1>
 
 // Thay ngày cưới (dòng ~16)

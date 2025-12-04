@@ -1,4 +1,4 @@
-# 💒 Wedding Website - Minh & Hương
+# 💒 Wedding Website - Việt & Hương
 
 Website đám cưới tuyệt đẹp được xây dựng với React, Tailwind CSS và các thư viện hiện đại.
 
