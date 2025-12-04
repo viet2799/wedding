@@ -125,7 +125,7 @@ const Gallery = () => {
       </motion.div>
 
       {/* Photo Grid / Mobile slider */}
-      <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none pb-4 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
         {photos.map((photo, index) => (
           <motion.div
             key={index}
@@ -133,7 +133,7 @@ const Gallery = () => {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ scale: 1.05 }}
-            className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl flex-none w-[80vw] sm:w-[65vw] md:w-full md:flex-auto snap-center md:snap-none"
+            className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl flex-none w-[80vw] sm:w-full sm:flex-auto snap-center sm:snap-none"
             onClick={() => openBook(index)}
           >
             <img 
