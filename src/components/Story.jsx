@@ -1,7 +1,13 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaHeart, FaGift, FaRing, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import {
+  FaHeart,
+  FaGift,
+  FaRing,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa";
 
 const storyAlbums = {
   firstMeeting: [
@@ -33,9 +39,9 @@ const Story = () => {
     {
       icon: FaHeart,
       title: "Lần Đầu Gặp Gỡ",
-      date: "Mùa Xuân 2020",
+      date: "Mùa xuân 2021",
       description:
-        "Chúng tôi gặp nhau trong một buổi chiều nắng đẹp tại quán cà phê yêu thích. Ánh mắt đầu tiên đã khiến trái tim chúng tôi rung động.",
+        "Chúng mình gặp nhau trong những ngày bập bé chuẩn bị ra trường, khi mới va vấp với xã hội. Tình cờ va phải nhau.",
       image: storyAlbums.firstMeeting[0],
       color: "from-primary-400 to-primary-600",
       album: storyAlbums.firstMeeting,
@@ -43,9 +49,9 @@ const Story = () => {
     {
       icon: FaGift,
       title: "Kỷ Niệm Đáng Nhớ",
-      date: "Mùa Hè 2021",
+      date: "2021-2025",
       description:
-        "Chuyến đi biển đầu tiên cùng nhau, nơi chúng tôi trao nhau lời hứa sẽ luôn bên nhau dù bất cứ điều gì xảy ra.",
+        "Chúng mình bên nhau qua từng ngày từng tháng. Cùng nhau đi chơi, đi du lịch, đi khám phá. Cùng nhau vui buồn, cùng nhau lớn lên. Vẫn yêu nhau như ngày đầu.",
       image: storyAlbums.summerPromise[0],
       color: "from-gold-400 to-gold-600",
       album: storyAlbums.summerPromise,
@@ -53,18 +59,16 @@ const Story = () => {
     {
       icon: FaRing,
       title: "Ngày Cầu Hôn",
-      date: "Mùa Đông 2024",
+      date: "Mùa hè 2024",
       description:
-        'Dưới bầu trời đầy sao, anh đã quỳ gối và hỏi em câu hỏi quan trọng nhất. Em đã nói "Có" với đôi mắt đẫm nước mắt hạnh phúc.',
+        "Giữa hội an cổ kính thơ mộng. Anh ngỏ lời. Em đồng ý. Chúng ta sẽ cùng nhau viết tiếp câu chuyện tình yêu này.",
       image: storyAlbums.proposal[0],
       color: "from-primary-400 to-gold-600",
       album: storyAlbums.proposal,
     },
   ];
 
-  const [slideIndexes, setSlideIndexes] = useState(() =>
-    timeline.map(() => 0)
-  );
+  const [slideIndexes, setSlideIndexes] = useState(() => timeline.map(() => 0));
   const [slideDirections, setSlideDirections] = useState(() =>
     timeline.map(() => "next")
   );
@@ -206,8 +210,12 @@ const Story = () => {
                     <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/10 to-transparent pointer-events-none"></div>
                     <div className="absolute inset-0 flex items-end justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-white/90 text-gray-800 px-3 py-2 rounded-xl shadow-lg backdrop-blur">
-                        <p className="text-sm font-semibold">Vuốt hoặc dùng mũi tên</p>
-                        <p className="text-xs text-gray-600">để xem thêm khoảnh khắc</p>
+                        <p className="text-sm font-semibold">
+                          Vuốt hoặc dùng mũi tên
+                        </p>
+                        <p className="text-xs text-gray-600">
+                          để xem thêm khoảnh khắc
+                        </p>
                       </div>
                       <div className="bg-primary-500 text-white p-3 rounded-full shadow-lg">
                         <Icon size={18} />
@@ -237,7 +245,11 @@ const Story = () => {
                               key={dotIndex}
                               type="button"
                               onClick={() => goToSlide(index, dotIndex)}
-                              className={`h-2.5 w-2.5 rounded-full border border-white transition ${dotIndex === currentSlide ? "bg-white" : "bg-white/40"}`}
+                              className={`h-2.5 w-2.5 rounded-full border border-white transition ${
+                                dotIndex === currentSlide
+                                  ? "bg-white"
+                                  : "bg-white/40"
+                              }`}
                               aria-label={`Chuyển tới ảnh ${dotIndex + 1}`}
                             />
                           ))}

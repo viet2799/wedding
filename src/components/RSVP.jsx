@@ -11,12 +11,12 @@ const RSVP = () => {
     {
       title: 'Mã QR Nhà Trai',
       subtitle: 'Scan để chung vui cùng chú rể',
-      image: '/qr-chu-re.svg'
+      image: '/qrnam.jpg'
     },
     {
       title: 'Mã QR Nhà Gái',
       subtitle: 'Scan để chung vui cùng cô dâu',
-      image: '/qr-co-dau.svg'
+      image: 'qrnhgai.jpg'
     }
   ];
 

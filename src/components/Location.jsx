@@ -1,36 +1,41 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FaMapMarkerAlt, FaClock, FaCalendar, FaChurch } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FaMapMarkerAlt, FaClock, FaCalendar, FaChurch } from "react-icons/fa";
 
 const Location = () => {
-  const [ref, inView] = useInView({ 
+  const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1 
+    threshold: 0.1,
   });
 
   const events = [
     {
       icon: FaChurch,
-      title: 'Lễ Thành Hôn',
-      time: '14:00',
-      date: '31/12/2025',
-      location: 'Nhà Thờ Lớn Hà Nội',
-      address: '40 Nhà Chung, Hoàn Kiếm, Hà Nội',
-      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096885266175!2d105.84888731476285!3d21.028770385995747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zTmjDoCBUaOG7nSDEkOG7qWNrIHThu5kgTmjDoCBDaMawbmc!5e0!3m2!1svi!2s!4v1234567890'
+      title: "Tiệc Cưới - Lễ Thành hôn",
+      time: "17:00",
+      date: "14/12/2025 - 15/12/2025",
+      location: "Quỳnh Phụ, Thái Bình, Việt Nam",
+      address: "Quỳnh Phụ, Thái Bình, Việt Nam",
+      mapUrl:
+        "https://www.openstreetmap.org/export/embed.html?bbox=106.3934%2C20.5942%2C106.4134%2C20.6142&layer=mapnik&marker=20.604232788085938%2C106.40339660644531",
     },
     {
       icon: FaMapMarkerAlt,
-      title: 'Tiệc Cưới',
-      time: '18:00',
-      date: '31/12/2025',
-      location: 'Trung Tâm Tiệc Cưới Paradise',
-      address: '123 Đường ABC, Quận XYZ, Hà Nội',
-      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096885266175!2d105.84888731476285!3d21.028770385995747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zTmjDoCBUaOG7nSDEkOG7qWNrIHThu5kgTmjDoCBDaMawbmc!5e0!3m2!1svi!2s!4v1234567890'
-    }
+      title: "Tiệc Cưới - Lễ Thành hôn",
+      time: "10:30",
+      date: "14/12/2025 - 15/12/2025",
+      location: "Nhà Hàng Bia NaDa 586, Trường Thi, Nam Định, Việt Nam",
+      address: "Nhà Hàng Bia NaDa 586, Trường Thi, Nam Định, Việt Nam",
+      mapUrl:
+        "https://www.openstreetmap.org/export/embed.html?bbox=106.1507%2C20.4072%2C106.1707%2C20.4272&layer=mapnik&marker=20.4172089%2C106.1607054",
+    },
   ];
 
   return (
-    <section className="section-container bg-gradient-to-br from-pink-50 to-gold-50" ref={ref}>
+    <section
+      className="section-container bg-gradient-to-br from-pink-50 to-gold-50"
+      ref={ref}
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -48,7 +53,7 @@ const Location = () => {
       <div className="space-y-16">
         {events.map((event, index) => {
           const Icon = event.icon;
-          
+
           return (
             <motion.div
               key={index}
@@ -70,7 +75,10 @@ const Location = () => {
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <FaClock className="text-primary-500 mt-1 flex-shrink-0" size={20} />
+                    <FaClock
+                      className="text-primary-500 mt-1 flex-shrink-0"
+                      size={20}
+                    />
                     <div>
                       <p className="font-semibold text-gray-800">Thời gian</p>
                       <p className="text-gray-600">{event.time}</p>
@@ -78,7 +86,10 @@ const Location = () => {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <FaCalendar className="text-primary-500 mt-1 flex-shrink-0" size={20} />
+                    <FaCalendar
+                      className="text-primary-500 mt-1 flex-shrink-0"
+                      size={20}
+                    />
                     <div>
                       <p className="font-semibold text-gray-800">Ngày</p>
                       <p className="text-gray-600">{event.date}</p>
@@ -86,17 +97,24 @@ const Location = () => {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <FaMapMarkerAlt className="text-primary-500 mt-1 flex-shrink-0" size={20} />
+                    <FaMapMarkerAlt
+                      className="text-primary-500 mt-1 flex-shrink-0"
+                      size={20}
+                    />
                     <div>
                       <p className="font-semibold text-gray-800">Địa điểm</p>
                       <p className="text-gray-600">{event.location}</p>
-                      <p className="text-gray-500 text-sm mt-1">{event.address}</p>
+                      <p className="text-gray-500 text-sm mt-1">
+                        {event.address}
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <motion.a
-                  href={`https://www.google.com/maps/search/${encodeURIComponent(event.address)}`}
+                  href={`https://www.google.com/maps/search/${encodeURIComponent(
+                    event.address
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary w-full mt-6 inline-block text-center"
