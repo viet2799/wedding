@@ -37,40 +37,40 @@ const Gallery = () => {
 
   const photos = [
     {
-      url: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800',
-      title: 'Ảnh cưới lãng mạn'
+      url: '/B0P_6101.JPG',
+      title: 'Khoảnh khắc lễ đường'
     },
     {
-      url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800',
-      title: 'Khoảnh khắc hạnh phúc'
+      url: '/B0P_5889.JPG',
+      title: 'Nụ cười hạnh phúc'
     },
     {
-      url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800',
-      title: 'Ngày trọng đại'
+      url: '/B0P_5488.JPG',
+      title: 'Cùng nhau tiến bước'
     },
     {
-      url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800',
-      title: 'Tình yêu vĩnh cửu'
+      url: '/B0P_5047.JPG',
+      title: 'Trao yêu thương'
     },
     {
-      url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800',
-      title: 'Hạnh phúc bên nhau'
+      url: '/z7290025715685_36070677006bd847b57ce1122583da13.jpg',
+      title: 'Những bước chân đầu tiên'
     },
     {
-      url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800',
-      title: 'Kỷ niệm đáng nhớ'
+      url: '/z7290029229710_eb4ef6dc67df1bbb54b59047a717291e.jpg',
+      title: 'Nắm tay thật chặt'
     },
     {
-      url: 'https://images.unsplash.com/photo-1529636798458-92182e662485?w=800',
-      title: 'Cùng nhau'
+      url: '/z7290032392619_250237bbd0ab3bc0bea799b80e017703.jpg',
+      title: 'Giai điệu ngọt ngào'
     },
     {
-      url: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800',
-      title: 'Chuyến đi đáng nhớ'
+      url: '/z7290037033934_9a097e992ad46b0a432295269cf26a63.jpg',
+      title: 'Bình yên bên nhau'
     },
     {
-      url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800',
-      title: 'Lời cầu hôn'
+      url: '/z7290040555974_92d1c66f897c0c16e77de1c6e52524cf.jpg',
+      title: 'Ánh hoàng hôn'
     }
   ];
 
@@ -133,13 +133,13 @@ const Gallery = () => {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ scale: 1.05 }}
-            className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl flex-none w-[80vw] sm:w-full sm:flex-auto snap-center sm:snap-none"
+            className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl flex-none w-[80vw] sm:w-full sm:flex-auto snap-center sm:snap-none aspect-[3/4]"
             onClick={() => openBook(index)}
           >
-            <img 
-              src={photo.url} 
+            <img
+              src={photo.url}
               alt={photo.title}
-              className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -211,7 +211,7 @@ const Gallery = () => {
                           <img
                             src={photos[pageIndex].url}
                             alt={photos[pageIndex].title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-center"
                           />
                           <div className="absolute inset-0 bg-gradient-to-tr from-black/35 via-transparent to-white/10"></div>
                           <div className="absolute inset-0 pointer-events-none">
@@ -248,7 +248,7 @@ const Gallery = () => {
                               <img
                                 src={photos[pageIndex + 1].url}
                                 alt={photos[pageIndex + 1].title}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover object-center"
                               />
                               <div className="absolute inset-0 bg-gradient-to-tl from-black/30 via-transparent to-white/10"></div>
                               <div className="absolute inset-0 pointer-events-none">

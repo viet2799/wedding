@@ -2,8 +2,27 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaHeart, FaGift, FaRing, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import wedding1 from "/wedding1.jpg";
-import wedding2 from "/wedding2.jpg";
+
+const storyAlbums = {
+  firstMeeting: [
+    "/B0P_5047.JPG",
+    "/z7290025715685_36070677006bd847b57ce1122583da13.jpg",
+    "/z7290029229710_eb4ef6dc67df1bbb54b59047a717291e.jpg",
+    "/z7290031215211_1587089e599cc04056c1cd54eccd3bb8.jpg",
+  ],
+  summerPromise: [
+    "/B0P_5488.JPG",
+    "/B0P_5889.JPG",
+    "/z7290032392619_250237bbd0ab3bc0bea799b80e017703.jpg",
+    "/z7290034205938_2dffcac2bac3b9b423a145c07c7df802.jpg",
+  ],
+  proposal: [
+    "/B0P_6101.JPG",
+    "/z7290037033934_9a097e992ad46b0a432295269cf26a63.jpg",
+    "/z7290039328564_0b72841344fb574dd490ad650bfb245b.jpg",
+    "/z7290040555974_92d1c66f897c0c16e77de1c6e52524cf.jpg",
+  ],
+};
 const Story = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -17,14 +36,9 @@ const Story = () => {
       date: "Mùa Xuân 2020",
       description:
         "Chúng tôi gặp nhau trong một buổi chiều nắng đẹp tại quán cà phê yêu thích. Ánh mắt đầu tiên đã khiến trái tim chúng tôi rung động.",
-      image: wedding1,
+      image: storyAlbums.firstMeeting[0],
       color: "from-primary-400 to-primary-600",
-      album: [
-        wedding1,
-        "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1400&auto=format&fit=crop&q=85",
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&auto=format&fit=crop&q=85",
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&auto=format&fit=crop&q=85",
-      ],
+      album: storyAlbums.firstMeeting,
     },
     {
       icon: FaGift,
@@ -32,14 +46,9 @@ const Story = () => {
       date: "Mùa Hè 2021",
       description:
         "Chuyến đi biển đầu tiên cùng nhau, nơi chúng tôi trao nhau lời hứa sẽ luôn bên nhau dù bất cứ điều gì xảy ra.",
-      image: wedding2,
+      image: storyAlbums.summerPromise[0],
       color: "from-gold-400 to-gold-600",
-      album: [
-        wedding2,
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&auto=format&fit=crop&q=85",
-        "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1400&auto=format&fit=crop&q=85",
-        "https://images.unsplash.com/photo-1529636798458-92182e662485?w=1400&auto=format&fit=crop&q=85",
-      ],
+      album: storyAlbums.summerPromise,
     },
     {
       icon: FaRing,
@@ -47,15 +56,9 @@ const Story = () => {
       date: "Mùa Đông 2024",
       description:
         'Dưới bầu trời đầy sao, anh đã quỳ gối và hỏi em câu hỏi quan trọng nhất. Em đã nói "Có" với đôi mắt đẫm nước mắt hạnh phúc.',
-      image:
-        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800",
+      image: storyAlbums.proposal[0],
       color: "from-primary-400 to-gold-600",
-      album: [
-        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1400&auto=format&fit=crop&q=85",
-        "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1400&auto=format&fit=crop&q=85",
-        "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1400&auto=format&fit=crop&q=85",
-        "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1400&auto=format&fit=crop&q=85",
-      ],
+      album: storyAlbums.proposal,
     },
   ];
 
@@ -186,13 +189,13 @@ const Story = () => {
                     handleTouchEnd(index, e.changedTouches[0]?.clientX ?? 0)
                   }
                 >
-                  <div className="relative h-80 md:h-[22rem] select-none">
+                  <div className="relative aspect-[3/4] md:aspect-[4/5] select-none">
                     <AnimatePresence mode="wait" custom={currentDirection}>
                       <motion.img
                         key={`${index}-${currentSlide}`}
                         src={album[currentSlide]}
                         alt={`${item.title} - ảnh ${currentSlide + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                         variants={slideVariants}
                         custom={currentDirection}
                         initial="enter"

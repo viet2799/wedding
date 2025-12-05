@@ -40,47 +40,47 @@ export const weddingInfo = {
       title: 'Lần Đầu Gặp Gỡ',
       date: 'Mùa Xuân 2020',
       description: 'Chúng tôi gặp nhau trong một buổi chiều nắng đẹp tại quán cà phê yêu thích. Ánh mắt đầu tiên đã khiến trái tim chúng tôi rung động.',
-      image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800'
+      image: '/B0P_5047.JPG'
     },
     {
       title: 'Kỷ Niệm Đáng Nhớ',
       date: 'Mùa Hè 2021',
       description: 'Chuyến đi biển đầu tiên cùng nhau, nơi chúng tôi trao nhau lời hứa sẽ luôn bên nhau dù bất cứ điều gì xảy ra.',
-      image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800'
+      image: '/B0P_5488.JPG'
     },
     {
       title: 'Ngày Cầu Hôn',
       date: 'Mùa Đông 2024',
       description: 'Dưới bầu trời đầy sao, anh đã quỳ gối và hỏi em câu hỏi quan trọng nhất. Em đã nói "Có" với đôi mắt đẫm nước mắt hạnh phúc.',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800'
+      image: '/B0P_6101.JPG'
     }
   ],
 
   // Gallery photos
   gallery: [
     {
-      url: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800',
-      title: 'Ảnh cưới lãng mạn'
+      url: '/B0P_6101.JPG',
+      title: 'Khoảnh khắc lễ đường'
     },
     {
-      url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800',
-      title: 'Khoảnh khắc hạnh phúc'
+      url: '/B0P_5889.JPG',
+      title: 'Nụ cười hạnh phúc'
     },
     {
-      url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800',
-      title: 'Ngày trọng đại'
+      url: '/B0P_5488.JPG',
+      title: 'Cùng nhau tiến bước'
     },
     {
-      url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800',
-      title: 'Tình yêu vĩnh cửu'
+      url: '/B0P_5047.JPG',
+      title: 'Trao yêu thương'
     },
     {
-      url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800',
-      title: 'Hạnh phúc bên nhau'
+      url: '/z7290025715685_36070677006bd847b57ce1122583da13.jpg',
+      title: 'Những bước chân đầu tiên'
     },
     {
-      url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800',
-      title: 'Kỷ niệm đáng nhớ'
+      url: '/z7290029229710_eb4ef6dc67df1bbb54b59047a717291e.jpg',
+      title: 'Nắm tay thật chặt'
     }
   ],
 

@@ -57,7 +57,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-100 via-pink-50 to-gold-100">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/B0P_6101.JPG')] bg-cover bg-center opacity-20"></div>
       </div>
 
       {/* Floating hearts animation */}
@@ -164,16 +164,6 @@ const Hero = () => {
           ))}
         </motion.div>
 
-        {/* CTA Button */}
-        <motion.button
-          className="btn-primary"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          onClick={() => document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' })}
-        >
-          Chung Vui Với Bọn Tớ
-        </motion.button>
       </div>
 
       {/* Scroll indicator */}
