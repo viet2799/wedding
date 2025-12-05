@@ -16,8 +16,10 @@ const Location = () => {
       date: "14/12/2025 - 15/12/2025",
       location: "Nhà Thờ Thượng Thôn",
       address: "Thôn Thượng, Quỳnh Phụ, Thái Bình, Việt Nam",
-      mapUrl:
+      mapEmbed:
         "https://www.google.com/maps?q=20.6051073,106.4041973&z=17&output=embed",
+      mapLink:
+        "https://www.google.com/maps/place/Nh%C3%A0+Th%E1%BB%9D+Th%C6%B0%E1%BB%A3ng+Th%C3%B4n/@20.6051073,106.4016224,1036m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3135f3c86921cc13:0xfba7dbbeab859df3!8m2!3d20.6051073!4d106.4041973!16s%2Fg%2F11cn8ynnkk?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D",
     },
     {
       icon: FaMapMarkerAlt,
@@ -26,8 +28,10 @@ const Location = () => {
       date: "14/12/2025 - 15/12/2025",
       location: "Nhà Hàng Bia NaDa 586, Trường Thi, Nam Định, Việt Nam",
       address: "Nhà Hàng Bia NaDa 586, Trường Thi, Nam Định, Việt Nam",
-      mapUrl:
-        "https://www.openstreetmap.org/export/embed.html?bbox=106.1507%2C20.4072%2C106.1707%2C20.4272&layer=mapnik&marker=20.4172089%2C106.1607054",
+      mapEmbed:
+        "https://www.google.com/maps?q=20.4172089,106.1607054&z=17&output=embed",
+      mapLink:
+        "https://www.google.com/maps/place/Nh%C3%A0+H%C3%A0ng+Bia+NaDa+586/@20.4172089,106.1607054,17z",
     },
   ];
 
@@ -112,9 +116,7 @@ const Location = () => {
                 </div>
 
                 <motion.a
-                  href={`https://www.google.com/maps/search/${encodeURIComponent(
-                    event.address
-                  )}`}
+                  href={event.mapLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary w-full mt-6 inline-block text-center"
@@ -131,7 +133,7 @@ const Location = () => {
                 className="rounded-2xl overflow-hidden shadow-2xl h-96"
               >
                 <iframe
-                  src={event.mapUrl}
+                  src={event.mapEmbed}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
