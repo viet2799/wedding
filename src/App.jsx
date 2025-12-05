@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import Couple from './components/Couple';
 import Story from './components/Story';
 import Gallery from './components/Gallery';
 import RSVP from './components/RSVP';
@@ -26,6 +27,9 @@ function App() {
       <div id="hero">
         <Hero />
       </div>
+      <div id="couple">
+        <Couple />
+      </div>
       <div id="story">
         <Story />
       </div>
@@ -46,4 +50,3 @@ function App() {
 }
 
 export default App;
-

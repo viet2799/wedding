@@ -35,53 +35,40 @@ const Gallery = () => {
     }),
   };
 
-  const photos = [
+const photos = [
     {
-      url: '/B0P_6101.JPG',
-      title: 'Khoảnh khắc lễ đường'
+        url: "/B0P_6101.JPG",
+        title: "Khoảnh khắc lễ đường",
     },
     {
-      url: '/B0P_5889.JPG',
-      title: 'Nụ cười hạnh phúc'
+        url: "/B0P_5889.JPG",
+        title: "Nụ cười hạnh phúc",
     },
     {
-      url: '/B0P_5488.JPG',
-      title: 'Cùng nhau tiến bước'
+        url: "/B0P_5488.JPG",
+        title: "Cùng nhau tiến bước",
     },
     {
-      url: '/B0P_5047.JPG',
-      title: 'Trao yêu thương'
+        url: "/B0P_5047.JPG",
+        title: "Trao yêu thương",
     },
     {
-      url: '/z7290025715685_36070677006bd847b57ce1122583da13.jpg',
-      title: 'Những bước chân đầu tiên'
+        // start from "1 (2).jpg" and then generate incrementing filenames: 1 (3).jpg, 1 (4).jpg, ...
+        url: "1 (2).jpg",
+        title: "Ánh hoàng hôn",
     },
-    {
-      url: '/z7290029229710_eb4ef6dc67df1bbb54b59047a717291e.jpg',
-      title: 'Nắm tay thật chặt'
-    },
-    {
-      url: '/z7290032392619_250237bbd0ab3bc0bea799b80e017703.jpg',
-      title: 'Giai điệu ngọt ngào'
-    },
-    {
-      url: '/z7290037033934_9a097e992ad46b0a432295269cf26a63.jpg',
-      title: 'Bình yên bên nhau'
-    },
-    {
-      url: '/z7290040555974_92d1c66f897c0c16e77de1c6e52524cf.jpg',
-      title: 'Ánh hoàng hôn'
-    }
-  ];
+    // append a sequence of incrementing filenames starting at 1 (3).jpg
+    ...Array.from({ length: 18 }, (_, i) => ({
+        url: `1 (${3 + i}).jpg`,
+        title: "Ánh hoàng hôn",
+    })),
+];
 
-  const openBook = useCallback(
-    (index) => {
-      const start = index - (index % 2);
-      setPageIndex(start);
-      setIsOpen(true);
-    },
-    []
-  );
+  const openBook = useCallback((index) => {
+    const start = index - (index % 2);
+    setPageIndex(start);
+    setIsOpen(true);
+  }, []);
 
   const closeBook = useCallback(() => {
     setIsOpen(false);
@@ -109,7 +96,10 @@ const Gallery = () => {
   }, [isOpen, goNext, goPrev, closeBook]);
 
   return (
-    <section className="section-container bg-gradient-to-br from-pink-50 to-gold-50" ref={ref}>
+    <section
+      className="section-container bg-gradient-to-br from-pink-50 to-gold-50"
+      ref={ref}
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -179,7 +169,8 @@ const Gallery = () => {
                     Bộ Sưu Tập Ảnh
                   </h3>
                   <p className="text-sm md:text-base text-gray-600">
-                    Lật trang bằng click/Enter trên trang, phím ← → hoặc nút điều hướng
+                    Lật trang bằng click/Enter trên trang, phím ← → hoặc nút
+                    điều hướng
                   </p>
                 </div>
                 <button

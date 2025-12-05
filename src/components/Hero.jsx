@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { FaHeart, FaChevronDown } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 
@@ -39,10 +39,6 @@ const Hero = () => {
         minutes: Math.floor((remaining / 1000 / 60) % 60),
         seconds: Math.floor((remaining / 1000) % 60)
       });
-
-      if (difference <= 0) {
-        clearInterval(timer);
-      }
     };
 
     updateCountdown(); // Set initial value immediately
@@ -136,7 +132,7 @@ const Hero = () => {
         {/* Countdown Timer */}
         <motion.div 
           ref={ref}
-          className="grid grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto mb-12"
+          className="grid grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto mt-2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 1 }}
@@ -149,7 +145,7 @@ const Hero = () => {
           ].map((item, index) => (
             <motion.div
               key={item.label}
-              className="card text-center"
+              className="card text-center bg-white/85 backdrop-blur border border-primary-50"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
