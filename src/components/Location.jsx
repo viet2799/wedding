@@ -17,7 +17,7 @@ const Location = () => {
       location: "Quỳnh Phụ, Thái Bình, Việt Nam",
       address: "Quỳnh Phụ, Thái Bình, Việt Nam",
       mapUrl:
-        "https://www.openstreetmap.org/export/embed.html?bbox=106.3934%2C20.5942%2C106.4134%2C20.6142&layer=mapnik&marker=20.604232788085938%2C106.40339660644531",
+        "https://www.google.com/maps?q=JC43+2MW+Nh%C3%A0+Th%E1%BB%9D+Th%C6%B0%E1%BB%A3ng+Th%C3%B4n,+Th%C3%B4n+Th%C6%B0%E1%BB%A3ng,+Qu%E1%BB%B3nh+Ph%E1%BB%A5,+Th%C3%A1i+B%C3%ACnh&ftid=0x3135f3c86921cc13:0xfba7dbbeab859df3&entry=gps&lucs=,94275415,94284466,94224825,94227247,94227248,94231188,94280568,47071704,47069508,94218641,94282134,94203019,47084304,94286869&g_ep=CAISEjI1LjQ3LjAuODMzNTQyOTMwMBgAIIgnKn4sOTQyNzU0MTUsOTQyODQ0NjYsOTQyMjQ4MjUsOTQyMjcyNDcsOTQyMjcyNDgsOTQyMzExODgsOTQyODA1NjgsNDcwNzE3MDQsNDcwNjk1MDgsOTQyMTg2NDEsOTQyODIxMzQsOTQyMDMwMTksNDcwODQzMDQsOTQyODY4NjlCAlZO&skid=f78dcdbe-8cd9-471d-8a08-0eb6c5cefd03&g_st=ipc",
     },
     {
       icon: FaMapMarkerAlt,
