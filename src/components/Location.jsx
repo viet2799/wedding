@@ -14,10 +14,10 @@ const Location = () => {
       title: "Tiệc Cưới - Lễ Thành hôn",
       time: "17:00",
       date: "14/12/2025 - 15/12/2025",
-      location: "Quỳnh Phụ, Thái Bình, Việt Nam",
-      address: "Quỳnh Phụ, Thái Bình, Việt Nam",
+      location: "Nhà Thờ Thượng Thôn",
+      address: "Thôn Thượng, Quỳnh Phụ, Thái Bình, Việt Nam",
       mapUrl:
-        "https://www.google.com/maps?q=JC43+2MW+Nh%C3%A0+Th%E1%BB%9D+Th%C6%B0%E1%BB%A3ng+Th%C3%B4n,+Th%C3%B4n+Th%C6%B0%E1%BB%A3ng,+Qu%E1%BB%B3nh+Ph%E1%BB%A5,+Th%C3%A1i+B%C3%ACnh&ftid=0x3135f3c86921cc13:0xfba7dbbeab859df3&entry=gps&lucs=,94275415,94284466,94224825,94227247,94227248,94231188,94280568,47071704,47069508,94218641,94282134,94203019,47084304,94286869&g_ep=CAISEjI1LjQ3LjAuODMzNTQyOTMwMBgAIIgnKn4sOTQyNzU0MTUsOTQyODQ0NjYsOTQyMjQ4MjUsOTQyMjcyNDcsOTQyMjcyNDgsOTQyMzExODgsOTQyODA1NjgsNDcwNzE3MDQsNDcwNjk1MDgsOTQyMTg2NDEsOTQyODIxMzQsOTQyMDMwMTksNDcwODQzMDQsOTQyODY4NjlCAlZO&skid=f78dcdbe-8cd9-471d-8a08-0eb6c5cefd03&g_st=ipc",
+        "https://www.google.com/maps?q=20.6051073,106.4041973&z=17&output=embed",
     },
     {
       icon: FaMapMarkerAlt,
